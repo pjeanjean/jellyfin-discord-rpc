@@ -13,8 +13,8 @@ def update():
             playing = sessions[0]['NowPlayingItem']
             if playing['Type'] == 'Audio':
                 t = (int) (sessions[0]['PlayState']['PositionTicks'] / 10000000)
-                RPC.update(details=playing['Name'], state=playing['Artists'][0], large_image='audio',
-                           start=((int) (time.time() - t)), large_text=f'{JELLYFIN_SERVER_URL}/Audio/{playing["Id"]}/stream.mp3')
+                RPC.update(details=playing['Name'], state=playing['Artists'][0], large_image='jellyfin', small_image='music',
+                           start=((int) (time.time() - t)), small_text=f'{JELLYFIN_SERVER_URL}/Audio/{playing["Id"]}/stream.mp3')
             else:
                 print(f'{playing["Type"]} support not yet implemented')
     else:
