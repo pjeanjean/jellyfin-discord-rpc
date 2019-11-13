@@ -19,7 +19,7 @@ def update():
                     artist = playing['AlbumArtists'][0]['Name']
                 else:
                     artist = 'Unknown'
-                RPC.update(details=playing['Name'], state=artist, large_image='jellyfin', small_image='music',
+                RPC.update(details=f'🎵 {playing["Name"]}', state=f'{artist}', large_image='jellyfin', small_image='music',
                            start=((int) (time.time() - t)), small_text=f'{JELLYFIN_SERVER_URL}/Audio/{playing["Id"]}/stream.mp3')
             else:
                 print(f'{playing["Type"]} support not yet implemented')
